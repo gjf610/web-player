@@ -1,0 +1,37 @@
+{
+  "id": "3142893",
+  "name": "web-player",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "4767104",
+      "name": "pause",
+      "font_class": "pause",
+      "unicode": "e7fe",
+      "unicode_decimal": 59390
+    },
+    {
+      "icon_id": "6598344",
+      "name": "fast-backward",
+      "font_class": "backward",
+      "unicode": "e8ed",
+      "unicode_decimal": 59629
+    },
+    {
+      "icon_id": "6598346",
+      "name": "fast-forward",
+      "font_class": "forward",
+      "unicode": "e8ee",
+      "unicode_decimal": 59630
+    },
+    {
+      "icon_id": "14464865",
+      "name": "player-play",
+      "font_class": "playing",
+      "unicode": "e614",
+      "unicode_decimal": 58900
+    }
+  ]
+}
