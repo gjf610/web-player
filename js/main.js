@@ -2,36 +2,37 @@ const m = {
   pointer: 0,
   audio: new Audio(),
   duration: 0,
+  clock: null,
   musicList: [
     {
-      "src": "http://jirengu_1.gitee.io/music/ifyou.mp3",
+      "src": "http://jirengu_1.gitee.io/music/music/ifyou.mp3",
       "title": "IF YOU",
       "author": "Big Bang",
-      "img": "http://jirengu_1.gitee.io/music/if-you.png"
+      "img": "http://jirengu_1.gitee.io/music/music/if-you.png"
     },
     {
-      "src": "http://jirengu_1.gitee.io/music/夏日示爱-郭彩洁-暖手心.m4a",
+      "src": "http://jirengu_1.gitee.io/music/music/夏日示爱-郭彩洁-暖手心.m4a",
       "title": "暖手心",
       "author": "郭彩洁",
-      "img": "http://jirengu_1.gitee.io/music/夏日示爱-郭彩洁-暖手心.jpg"
+      "img": "http://jirengu_1.gitee.io/music/music/夏日示爱-郭彩洁-暖手心.jpg"
     },
     {
-      "src": "http://jirengu_1.gitee.io/music/玫瑰.mp3",
+      "src": "http://jirengu_1.gitee.io/music/music/玫瑰.mp3",
       "title": "玫瑰",
       "author": "贰佰",
-      "img": "http://jirengu_1.gitee.io/music/玫瑰.jpeg"
+      "img": "http://jirengu_1.gitee.io/music/music/玫瑰.jpeg"
     },
     {
-      "src": "http://jirengu_1.gitee.io/music/成全-林宥嘉-成全.m4a",
+      "src": "http://jirengu_1.gitee.io/music/music/成全-林宥嘉-成全.m4a",
       "title": "成全",
       "author": "林宥嘉",
-      "img": "http://jirengu_1.gitee.io/music/成全-林宥嘉-成全.jpg"
+      "img": "http://jirengu_1.gitee.io/music/music/成全-林宥嘉-成全.jpg"
     },
     {
-      "src": "http://jirengu_1.gitee.io/music/飞行器的执行周期-郭顶-水星记.m4a",
+      "src": "http://jirengu_1.gitee.io/music/music/飞行器的执行周期-郭顶-水星记.m4a",
       "title": "水星记",
       "author": "郭顶",
-      "img": "http://jirengu_1.gitee.io/music/飞行器的执行周期-郭顶-水星记.jpg"
+      "img": "http://jirengu_1.gitee.io/music/music/飞行器的执行周期-郭顶-水星记.jpg"
     }
   ]
 }
@@ -43,6 +44,7 @@ const $playingBtn = $('.player .icon-playing')
 const $title = $('.player .texts h3')
 const $author = $('.player .texts p')
 const $time = $('.player .time')
+const $progress = $('.player .progress')
 
 setMusic()
 
@@ -54,10 +56,20 @@ function setMusic() {
   setTime()
 }
 function setTime() {
-  m.audio.oncanplay = function () {
-    m.duration = m.audio.duration
-    $time.innerText = transTime(m.duration)
-  }
+  m.clock = setInterval(function () {
+    let curTime = m.audio.currentTime
+    let totalTime = m.audio.duration
+    let percent = curTime / totalTime
+    $progress.style.width = percent * 100 + '%'
+    $time.innerText = secondToText(curTime) + ' / ' + secondToText(totalTime)
+  }, 1000)
+}
+function secondToText(second) {
+  second = parseInt(second)
+  let min = parseInt(second / 60)
+  let sec = second % 60
+  sec = sec < 10 ? '0' + sec : '' + sec
+  return min + ':' + sec
 }
 function paly() {
   $playingBtn.classList.remove('icon-playing')

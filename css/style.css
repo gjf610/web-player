@@ -9,7 +9,7 @@ body{
   right: 0;
   bottom: 0;
   z-index: -1;
-  background: url(http://jirengu_1.gitee.io/music/if-you.png) center no-repeat;
+  background: url(http://jirengu_1.gitee.io/music/music/if-you.png) center no-repeat;
   background-size: cover;
   filter: blur(10px);
   transform: scale(1.1);
