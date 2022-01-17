@@ -54,6 +54,7 @@ body{
   height: 3px;
   background: #ccc;
   border-radius: 3px;
+  cursor: pointer;
 }
 .player .bar .progress{
   height: 100%;

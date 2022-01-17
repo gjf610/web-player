@@ -44,6 +44,7 @@ const $playingBtn = $('.player .icon-playing')
 const $title = $('.player .texts h3')
 const $author = $('.player .texts p')
 const $time = $('.player .time')
+const $bar = $('.player .bar')
 const $progress = $('.player .progress')
 
 setMusic()
@@ -110,9 +111,8 @@ $preBtn.onclick = function (e) {
   paly()
 }
 m.audio.addEventListener('timeupdate', function () {
-  //更新进度条
-  const percentage = (this.currentTime / m.audio.duration) * 100;
-  $progress.style.width = percentage + '%';
+  const percent = this.currentTime / m.audio.duration;
+  $progress.style.width = (percent * 100) + '%';
   if (this.readyState >= 2) { // 数据已经可以播放
     $time.innerText = secondToText(this.currentTime) + ' / ' + secondToText(m.audio.duration)
   }
@@ -126,3 +126,10 @@ m.audio.addEventListener('ended', function () {
   console.log('结束了')
   setTimeout($nextBtn.onclick, 1000);	// 1s后开始播放下一首,预留一点加载时间
 })
+
+$bar.onmousedown = function (e) {
+  const percent = (e.offsetX / $bar.offsetWidth);
+  $progress.style.width = (percent * 100) + '%';
+  m.audio.currentTime = parseInt(m.audio.duration * percent);
+  paly()
+}
