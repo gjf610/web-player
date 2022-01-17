@@ -54,7 +54,11 @@ body{
   height: 3px;
   background: #ccc;
   border-radius: 3px;
+  transform: 'box-shadow' 300ms;
   cursor: pointer;
+}
+.player .bar:hover {
+  box-shadow: 0 0 8px #9b9b9b;
 }
 .player .bar .progress{
   height: 100%;
