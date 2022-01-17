@@ -53,17 +53,9 @@ function setMusic() {
   m.audio.src = curMusic.src
   $title.innerText = curMusic.title
   $author.innerText = curMusic.author
-  setTime()
+
 }
-function setTime() {
-  m.clock = setInterval(function () {
-    let curTime = m.audio.currentTime
-    let totalTime = m.audio.duration
-    let percent = curTime / totalTime
-    $progress.style.width = percent * 100 + '%'
-    $time.innerText = secondToText(curTime) + ' / ' + secondToText(totalTime)
-  }, 1000)
-}
+
 function secondToText(second) {
   second = parseInt(second)
   let min = parseInt(second / 60)
@@ -75,7 +67,6 @@ function paly() {
   $playingBtn.classList.remove('icon-playing')
   $playingBtn.classList.add('icon-pause')
   m.audio.play()
-  setTime()
 }
 function pause() {
   $playingBtn.classList.remove('icon-pause')
@@ -118,3 +109,20 @@ $preBtn.onclick = function (e) {
   setMusic()
   paly()
 }
+m.audio.addEventListener('timeupdate', function () {
+  //更新进度条
+  const percentage = (this.currentTime / m.audio.duration) * 100;
+  $progress.style.width = percentage + '%';
+  if (this.readyState >= 2) { // 数据已经可以播放
+    $time.innerText = secondToText(this.currentTime) + ' / ' + secondToText(m.audio.duration)
+  }
+
+});
+m.audio.addEventListener('abort', function () {
+  console.log('加载中')
+  console.log('readyState a', this.readyState)
+})
+m.audio.addEventListener('ended', function () {
+  console.log('结束了')
+  setTimeout($nextBtn.onclick, 1000);	// 1s后开始播放下一首,预留一点加载时间
+})
