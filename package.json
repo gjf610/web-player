@@ -5,7 +5,7 @@
   "repository": "git@github.com:gjf610/web-player.git",
   "author": "jianfeng <gjf610@yeah.net>",
   "scripts": {
-    "build": "parcel build index.html --no-minify --public-url ./",
+    "build": "rm -rf dist && parcel build index.html --no-minify --public-url ./",
     "deploy": "sh deploy.sh"
   },
   "license": "ISC"

@@ -24,7 +24,7 @@ body{
   color: #ea8989;
   background: rgba(255, 255, 255, 0.7);
 }
-@media (max-width: 410px) {
+@media (max-width: 420px) {
   .player {
     width: 240px;
     padding: 20px ;
@@ -141,4 +141,4 @@ body{
   }
 }
 
-/*# sourceMappingURL=style.6c990cec.css.map */
+/*# sourceMappingURL=style.872a5b25.css.map */
