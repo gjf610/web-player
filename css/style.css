@@ -66,7 +66,70 @@ body{
   border-radius: 3px;
   background: currentColor;
 }
-.player .time {
-  text-align:  right;
+.player .tools {
+  display: flex;
+  justify-content: right;
+  align-items: center;
   margin-top: 8px;
+}
+.player .tools .iconfont{
+  font-size: 20px;
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+#volume{
+	line-height: 50px;
+}
+
+/*音量控制部分*/
+/*音量控制盒子*/
+.volCtrl{
+	width: 40px;
+	height: 100px;
+	padding: 5px 0;
+	background-color: rgba(255, 255, 255, 0.7);
+	text-align: center;
+	position: absolute;
+	right: 33px;
+	bottom: 55px;
+  display: none;
+}
+
+/*音量大小数值*/
+.volNum{
+	position: absolute;
+	display: block;
+	width: 100%;
+	height: 20px;
+	font-size: 14px;
+	line-height: 20px;
+}
+
+/*音量条盒子*/
+.volBarWrapper{
+	display: block;
+	margin-left: 16px;
+	margin-top: 20px;
+	width: 8px;
+	height: 80px;
+	border-radius: 8px;
+	background-color: #fff;
+	position: absolute;
+	z-index: 100;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+/*音量条*/
+.volBar{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	z-index: 20;
+	display: block;
+	width: 8px;
+	height: 100%;
+	border-radius: 8px;
+	background-color: #ea8989;
 }
