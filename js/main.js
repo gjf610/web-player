@@ -6,22 +6,10 @@ const m = {
   cacheVolume: 0,
   musicList: [
     {
-      "src": "http://jirengu_1.gitee.io/music/music/ifyou.mp3",
-      "title": "IF YOU",
-      "author": "Big Bang",
-      "img": "http://jirengu_1.gitee.io/music/music/if-you.png"
-    },
-    {
       "src": "http://jirengu_1.gitee.io/music/music/夏日示爱-郭彩洁-暖手心.m4a",
       "title": "暖手心",
       "author": "郭彩洁",
       "img": "http://jirengu_1.gitee.io/music/music/夏日示爱-郭彩洁-暖手心.jpg"
-    },
-    {
-      "src": "http://jirengu_1.gitee.io/music/music/玫瑰.mp3",
-      "title": "玫瑰",
-      "author": "贰佰",
-      "img": "http://jirengu_1.gitee.io/music/music/玫瑰.jpeg"
     },
     {
       "src": "http://jirengu_1.gitee.io/music/music/成全-林宥嘉-成全.m4a",
@@ -30,10 +18,22 @@ const m = {
       "img": "http://jirengu_1.gitee.io/music/music/成全-林宥嘉-成全.jpg"
     },
     {
+      "src": "http://jirengu_1.gitee.io/music/music/ifyou.mp3",
+      "title": "IF YOU",
+      "author": "Big Bang",
+      "img": "http://jirengu_1.gitee.io/music/music/if-you.png"
+    },
+    {
       "src": "http://jirengu_1.gitee.io/music/music/飞行器的执行周期-郭顶-水星记.m4a",
       "title": "水星记",
       "author": "郭顶",
       "img": "http://jirengu_1.gitee.io/music/music/飞行器的执行周期-郭顶-水星记.jpg"
+    },
+    {
+      "src": "http://jirengu_1.gitee.io/music/music/玫瑰.mp3",
+      "title": "玫瑰",
+      "author": "贰佰",
+      "img": "http://jirengu_1.gitee.io/music/music/玫瑰.jpeg"
     }
   ]
 }
