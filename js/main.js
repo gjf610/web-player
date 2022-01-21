@@ -145,7 +145,7 @@ $bar.onmousedown = function (e) {
 $volBarWrapper.onclick = function (e) {
   const { offsetHeight: height } = $volBarWrapper
   const { offsetParent, offsetTop } = $volume
-  const cal = e.screenY - offsetParent.offsetTop - offsetTop + 65
+  const cal = e.screenY - offsetParent.offsetTop - offsetTop + 75
   const per = ((height - cal) / height) * 100
   if (per < 1) {
     $volBar.style.height = '0%';
