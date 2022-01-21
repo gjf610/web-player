@@ -273,10 +273,14 @@ $volBarWrapper.onclick = function (e) {
   var height = $volBarWrapper.offsetHeight;
   var offsetParent = $volume.offsetParent,
       offsetTop = $volume.offsetTop;
-  var cal = e.screenY - offsetParent.offsetTop - offsetTop + 75;
+  var cal = e.screenY - offsetParent.offsetTop - offsetTop + 40;
   var per = (height - cal) / height * 100;
+  console.log(per);
 
-  if (per < 1) {
+  if (per > 100) {
+    $volBar.style.height = '100%';
+    m.audio.volume = 1;
+  } else if (per < 1) {
     $volBar.style.height = '0%';
     m.audio.volume = 0;
   } else {
@@ -351,4 +355,4 @@ function volControl() {
   }
 }
 },{}]},{},["d6sW"], null)
-//# sourceMappingURL=main.fe5e6f56.js.map
+//# sourceMappingURL=main.83fc0866.js.map
