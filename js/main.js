@@ -39,6 +39,7 @@ const m = {
 }
 
 const $ = selector => document.querySelector(selector)
+const $cover = $('.cover')
 const $preBtn = $('.player .icon-backward')
 const $nextBtn = $('.player .icon-forward')
 const $playingBtn = $('.player .icon-playing')
@@ -58,6 +59,7 @@ setMusic()
 function setMusic() {
   let curMusic = m.musicList[m.pointer]
   m.audio.src = curMusic.src
+  $cover.style.background = `url(${curMusic.img}) center no-repeat`
   $title.innerText = curMusic.title
   $author.innerText = curMusic.author
 }
