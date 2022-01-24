@@ -242,7 +242,40 @@ $preBtn.onclick = function (e) {
   paly();
 };
 
-m.audio.addEventListener('timeupdate', function () {
+function throttle(func, wait) {
+  var timeout, context, args;
+  var previous = 0;
+
+  var later = function later() {
+    previous = +new Date();
+    timeout = null;
+    func.apply(context, args);
+  };
+
+  var throttled = function throttled() {
+    var now = +new Date(); //下次触发 func 剩余的时间
+
+    var remaining = wait - (now - previous);
+    context = this;
+    args = arguments; // 如果没有剩余的时间了或者你改了系统时间
+
+    if (remaining <= 0 || remaining > wait) {
+      if (timeout) {
+        clearTimeout(timeout);
+        timeout = null;
+      }
+
+      previous = now;
+      func.apply(context, args);
+    } else if (!timeout) {
+      timeout = setTimeout(later, remaining);
+    }
+  };
+
+  return throttled;
+}
+
+m.audio.addEventListener('timeupdate', throttle(function () {
   var percent = this.currentTime / m.audio.duration;
   $progress.style.width = percent * 100 + '%';
 
@@ -250,7 +283,7 @@ m.audio.addEventListener('timeupdate', function () {
     // 数据已经可以播放
     $time.innerText = secondToText(this.currentTime) + ' / ' + secondToText(m.audio.duration);
   }
-});
+}, 1000));
 m.audio.addEventListener('abort', function () {
   console.log('加载中');
   console.log('readyState a', this.readyState);
@@ -355,4 +388,4 @@ function volControl() {
   }
 }
 },{}]},{},["d6sW"], null)
-//# sourceMappingURL=main.83fc0866.js.map
+//# sourceMappingURL=main.31b2c18c.js.map
