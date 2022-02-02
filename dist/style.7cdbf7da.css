@@ -83,8 +83,6 @@ body{
   cursor: pointer;
 }
 
-/*音量控制部分*/
-/*音量控制盒子*/
 .volCtrl{
 	width: 40px;
 	height: 100px;
@@ -97,7 +95,6 @@ body{
   display: none;
 }
 
-/*音量大小数值*/
 .volNum{
 	position: absolute;
 	display: block;
@@ -107,7 +104,6 @@ body{
 	line-height: 20px;
 }
 
-/*音量条盒子*/
 .volBarWrapper{
 	display: block;
 	margin-left: 16px;
@@ -122,7 +118,6 @@ body{
 	cursor: pointer;
 }
 
-/*音量条*/
 .volBar{
 	position: absolute;
 	left: 0;
@@ -141,4 +136,4 @@ body{
   }
 }
 
-/*# sourceMappingURL=style.872a5b25.css.map */
+/*# sourceMappingURL=style.7cdbf7da.css.map */
